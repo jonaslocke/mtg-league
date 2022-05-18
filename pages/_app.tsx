@@ -11,6 +11,7 @@ const MyApp = ({
   pageProps: { session, ...pageProps },
 }: AppProps) => {
   const [open, setOpen] = useState(false);
+
   return (
     <SessionProvider session={session}>
       <SignIn />

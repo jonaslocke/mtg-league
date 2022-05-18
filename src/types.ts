@@ -1,7 +1,8 @@
 export type Link = {
     title: string;
-    to: URL | "#";
+    to: string;
     initial: string;
+    as?: string;
 }
 
 

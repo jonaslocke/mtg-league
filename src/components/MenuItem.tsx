@@ -1,20 +1,17 @@
+import Link from "next/link";
 import { FC } from "react";
-import { Link } from "../types";
+import { Link as Lnk } from "../types";
 
-type Props = Link & { open: boolean; callback?: () => void };
+type Props = Lnk & { open: boolean };
 
-const MenuItem: FC<Props> = ({ open, title, initial, to, callback }) => {
-  const linkEl: JSX.Element = (
-    <a href={to.toString()} className={`menu-icon ${open && "open"}`}>
-      <div className="menu-icon__inner">{open ? title : initial}</div>
-    </a>
+const MenuItem: FC<Props> = ({ open, title, initial, to, as }) => {
+  return (
+    <Link href={to} as={as}>
+      <div className={`menu-icon ${open && "open"}`}>
+        <div className="menu-icon__inner">{open ? title : initial}</div>
+      </div>
+    </Link>
   );
-  const callbackEl: JSX.Element = (
-    <button className={`menu-icon ${open && "open"}`} onClick={callback}>
-      <div className="menu-icon__inner">{open ? title : initial}</div>
-    </button>
-  );
-  return callback ? callbackEl : linkEl;
 };
 
 export default MenuItem;

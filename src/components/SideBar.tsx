@@ -1,4 +1,4 @@
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { Dispatch, FC, SetStateAction } from "react";
 import { Link } from "../types";
@@ -43,20 +43,14 @@ const SideBar: FC<Props> = ({ open, setOpen }) => {
         {!session && (
           <MenuIcon
             title={"Login"}
-            to={"#"}
-            callback={signIn}
+            to={"/?signin=true"}
             initial={"L"}
+            as={"/signin"}
             open={open}
           />
         )}
         {session && (
-          <MenuIcon
-            title={"Logout"}
-            to={"#"}
-            callback={signOut}
-            initial={"L"}
-            open={open}
-          />
+          <MenuIcon title={"Logout"} to={"#"} initial={"L"} open={open} />
         )}
       </div>
     </div>

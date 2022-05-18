@@ -8,7 +8,7 @@
   height: var(--size);
   text-decoration: none;
   cursor: pointer;
-  @include expandSidebar();
+  @include transition();
   text-transform: uppercase;
   letter-spacing: 0.4px;
   color: white;
