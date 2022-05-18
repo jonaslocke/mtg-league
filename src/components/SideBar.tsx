@@ -25,7 +25,7 @@ const SideBar: FC<Props> = ({ open, setOpen }) => {
         onClick={handleOpen}
         className="logo"
       />
-      <div>
+      <div className="vertical-bar__links">
         {links.map(({ title, to, initial }, id) => (
           <MenuIcon
             title={title}
@@ -35,6 +35,8 @@ const SideBar: FC<Props> = ({ open, setOpen }) => {
             key={id}
           />
         ))}
+        <div className="spacer"></div>
+        <MenuIcon title={"Login"} to={"#"} initial={"L"} open={open} />
       </div>
     </div>
   );
