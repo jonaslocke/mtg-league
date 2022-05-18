@@ -1,0 +1,22 @@
+.vertical-bar {
+  position: fixed;
+  height: 100vh;
+  background-color: #222;
+  left: 0;
+  top: 0;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  padding: 4px;
+  border-right: 1px solid #333;
+  @include expandSidebar();
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+}
