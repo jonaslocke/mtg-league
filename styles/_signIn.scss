@@ -1,0 +1,9 @@
+.sign-in {
+  --size: 100px;
+  width: var(--size);
+  height: var(--size);
+  background-color: #222;
+  border: 2px solid #333;
+  padding: 8px;
+  border-radius: 4px;
+}
