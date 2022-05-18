@@ -1,7 +1,8 @@
+import { useSession, signIn, signOut } from "next-auth/react";
+import Image from "next/image";
 import { Dispatch, FC, SetStateAction } from "react";
 import { Link } from "../types";
 import MenuIcon from "./MenuItem";
-import Image from "next/image";
 
 type Props = {
   open: boolean;
@@ -12,10 +13,13 @@ const SideBar: FC<Props> = ({ open, setOpen }) => {
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
+
   const links: Link[] = [];
   links.push({ title: "Pioneer", to: "#", initial: "P" });
   links.push({ title: "Modern", to: "#", initial: "M" });
   links.push({ title: "Standard", to: "#", initial: "S" });
+
+  const { data: session } = useSession();
   return (
     <div className={`vertical-bar ${open && "open"}`}>
       <Image
@@ -36,7 +40,24 @@ const SideBar: FC<Props> = ({ open, setOpen }) => {
           />
         ))}
         <div className="spacer"></div>
-        <MenuIcon title={"Login"} to={"#"} initial={"L"} open={open} />
+        {!session && (
+          <MenuIcon
+            title={"Login"}
+            to={"#"}
+            callback={signIn}
+            initial={"L"}
+            open={open}
+          />
+        )}
+        {session && (
+          <MenuIcon
+            title={"Logout"}
+            to={"#"}
+            callback={signOut}
+            initial={"L"}
+            open={open}
+          />
+        )}
       </div>
     </div>
   );

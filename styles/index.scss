@@ -39,6 +39,8 @@ body {
   transition: 0.3s ease-in-out;
   text-transform: uppercase;
   letter-spacing: 0.4px;
+  color: white;
+  border: none;
   &__inner {
     height: calc(var(--size) - 4px);
     border: 2px solid #aaa;

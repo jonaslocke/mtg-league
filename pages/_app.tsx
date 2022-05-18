@@ -1,16 +1,20 @@
+import { SessionProvider } from "next-auth/react";
+import type { AppProps } from "next/app";
+import { useState } from "react";
+import SideBar from "../src/components/SideBar";
 import "../styles/globals.css";
 import "../styles/index.scss";
-import type { AppProps } from "next/app";
-import SideBar from "../src/components/SideBar";
-import { useState } from "react";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) => {
   const [open, setOpen] = useState(false);
   return (
-    <>
+    <SessionProvider session={session}>
       <SideBar open={open} setOpen={setOpen} />
       <Component {...pageProps} />
-    </>
+    </SessionProvider>
   );
 };
 
