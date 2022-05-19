@@ -1,11 +1,10 @@
 .menu-icon {
-  --size: 32px;
   display: block;
   background-color: #333;
-  padding: 2px;
-  margin: 4px 0;
-  width: var(--size);
-  height: var(--size);
+  padding: spacing(0.5);
+  margin: spacing(1) 0;
+  width: spacing(8);
+  height: spacing(8);
   text-decoration: none;
   cursor: pointer;
   @include transition();
@@ -14,14 +13,14 @@
   color: white;
   border: none;
   &__inner {
-    height: calc(var(--size) - 4px);
+    height: spacing(7);
     border: 2px solid #aaa;
-    padding: 4px;
+    padding: spacing(1);
     display: flex;
     justify-content: center;
   }
   &.open {
-    width: calc(var(--size) * 3);
+    width: spacing(24);
     .menu-icon__inner {
       justify-content: start !important;
     }

@@ -43,14 +43,20 @@ const SideBar: FC<Props> = ({ open, setOpen }) => {
         {!session && (
           <MenuIcon
             title={"Login"}
-            to={"/?signin=true"}
+            to={"/?signIn=true"}
+            as={"/signIn"}
             initial={"L"}
-            as={"/signin"}
             open={open}
           />
         )}
         {session && (
-          <MenuIcon title={"Logout"} to={"#"} initial={"L"} open={open} />
+          <MenuIcon
+            title={"Logout"}
+            to={"/?signOut=false"}
+            as={"/signOut"}
+            initial={"L"}
+            open={open}
+          />
         )}
       </div>
     </div>

@@ -1,0 +1,15 @@
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background: rgba($color: black, $alpha: 0.5);
+  display: grid;
+  place-items: center;
+  transform: translateY(-150%);
+  transition: 0.2s ease-in-out;
+  &.open {
+    background: rgba($color: black, $alpha: 0.5);
+    transform: translateY(0);
+  }
+}

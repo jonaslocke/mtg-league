@@ -5,15 +5,19 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-@mixin transition {
+@mixin transition() {
   transition: 0.3s ease-in-out;
+}
+
+@function spacing($number) {
+  @return $number * 4px;
 }
 
 .main {
   --size: 42px;
   margin-left: var(--size);
   @include transition();
-  padding: 8px;
+  padding: spacing(2);
   &.extended {
     margin-left: calc(var(--size) * 2.5);
   }
@@ -25,22 +29,10 @@ body {
 .spacer {
   flex: 1;
 }
-.modal {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  z-index: 999;
-  background: rgba($color: white, $alpha: 0.5);
-  display: grid;
-  place-items: center;
-  transform: translateY(-150%);
-  transition: 0.2s ease-in-out;
-  &.open {
-    background: rgba($color: white, $alpha: 0.2);
-    transform: translateY(0);
-  }
-}
 
+@import "generalClasses";
 @import "signIn";
 @import "menu-icon";
 @import "vertical-bar";
+@import "modal";
+@import "avatar";

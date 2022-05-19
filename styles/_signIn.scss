@@ -1,9 +1,10 @@
 .sign-in {
-  --size: 100px;
-  width: var(--size);
-  height: var(--size);
   background-color: #222;
   border: 2px solid #333;
-  padding: 8px;
-  border-radius: 4px;
+  padding: spacing(5) spacing(10);
+  border-radius: spacing(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -6,8 +6,9 @@
   top: 0;
   color: white;
   font-family: "Open Sans", sans-serif;
-  font-size: 12px;
-  padding: 4px;
+  font-size: spacing(3);
+  padding: spacing(1);
+  padding-bottom: spacing(4);
   border-right: 1px solid #333;
   @include transition();
   display: flex;

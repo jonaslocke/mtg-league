@@ -1,0 +1,92 @@
+@for $i from 0 through 20 {
+  .fz-#{$i} {
+    @if $i != 0 {
+      font-size: spacing($i) !important;
+    }
+  }
+
+  .pr-#{$i} {
+    padding-right: spacing($i) !important;
+  }
+  .pl-#{$i} {
+    padding-left: spacing($i) !important;
+  }
+  .pt-#{$i} {
+    padding-top: spacing($i) !important;
+  }
+  .pb-#{$i} {
+    padding-bottom: spacing($i) !important;
+  }
+  .pa-#{$i} {
+    padding: spacing($i) !important;
+  }
+  .py-#{$i} {
+    padding: spacing($i) 0 !important;
+  }
+  .px-#{$i} {
+    padding: 0 spacing($i) !important;
+  }
+
+  .ml-#{$i} {
+    margin-left: spacing($i) !important;
+  }
+  .mr-#{$i} {
+    margin-right: spacing($i) !important;
+  }
+  .mt-#{$i} {
+    margin-top: spacing($i) !important;
+  }
+  .mb-#{$i} {
+    margin-bottom: spacing($i) !important;
+  }
+  .ma-#{$i} {
+    margin: spacing($i) !important;
+  }
+  .my-#{$i} {
+    margin: spacing($i) 0 !important;
+  }
+  .mx-#{$i} {
+    margin: 0 spacing($i) !important;
+  }
+
+  @for $f from 0 through 20 {
+    .mxy-#{$i}-#{$f} {
+      margin: spacing($f) spacing($i) !important;
+    }
+    .pxy-#{$i}-#{$f} {
+      padding: spacing($f) spacing($i) !important;
+    }
+  }
+
+  .w-#{$i} {
+    @if $i == 0 {
+      width: auto !important;
+    } @else {
+      width: spacing($i) !important;
+    }
+  }
+  .h-#{$i} {
+    @if $i == 0 {
+      height: auto !important;
+    } @else {
+      height: spacing($i) !important;
+    }
+  }
+  .wh-#{$i} {
+    @if $i == 0 {
+      width: auto !important;
+      height: auto !important;
+    } @else {
+      width: spacing($i) !important;
+      height: spacing($i) !important;
+    }
+  }
+}
+@for $i from 0 through 100 {
+  .wp-#{$i} {
+    width: #{$i * 1%};
+  }
+  .hp-#{$i} {
+    height: #{$i * 1%};
+  }
+}
