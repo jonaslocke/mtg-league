@@ -11,6 +11,7 @@ import { AvatarSizes, User } from "../types";
 import Avatar from "./Avatar";
 import Modal from "./Modal";
 import { ToDataUrl, ArchiveImage, dummy } from "../../vendors";
+import Button from "./Button";
 
 type Props = {};
 
@@ -44,10 +45,12 @@ const SignIn: FC<Props> = () => {
       console.log("=>", localStorage.getItem("avatarqq"));
     }
   }, [user]);
+  const testClick = () => console.log(1);
 
   return (
     <Modal open={open}>
       <div className="sign-in">
+        <Button onClick={testClick}>click me</Button>
         {inSignIn && <BiUserCircle size={64} />}
         {inSignIn &&
           Object.values(providers).map((provider: any) => (
