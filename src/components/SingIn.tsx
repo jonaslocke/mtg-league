@@ -7,7 +7,7 @@ import {
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { BiUserCircle } from "react-icons/bi";
-import { ArchiveImage, dummy, ToDataUrl } from "../../vendors";
+import { dummy } from "../../vendors";
 import { AvatarSizes, FontVariants, User } from "../types";
 import Avatar from "./Avatar";
 import Button from "./Button";
@@ -25,6 +25,7 @@ const SignIn: FC<Props> = () => {
   const [providers, setProviders] = useState<any>({});
   const [user, setUser] = useState<User>();
   const [userImage, setUserImage] = useState(dummy);
+  const [userImage2, setUserImage2] = useState<any>(null);
   const { data } = useSession();
 
   const getProviders = async () => setProviders(await prov());
@@ -38,15 +39,51 @@ const SignIn: FC<Props> = () => {
     setUser(data?.user);
   }, [data]);
 
-  useEffect(() => {
-    // const localImage = localStorage.getItem("avatarqq");
-    // const ready = !localImage && !!user?.image;
+  const fetchImage = (image: string, alias: string) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", image);
+    xhr.responseType = "blob";
+    xhr.send();
+    xhr.onload = () => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const result = reader.result;
+        if (result) {
+          localStorage.setItem(`avatar-${alias}`, reader.result.toString());
+          setUserImage(reader.result.toString());
+        }
+      };
+      reader.readAsDataURL(xhr.response);
+      return reader.result;
+    };
+  };
 
-    // if (ready) {
-    //   ToDataUrl(user.image || "", ArchiveImage);
-    //   console.log("=>", localStorage.getItem("avatarqq"));
-    // }
-    console.log(user);
+  useEffect(() => {
+    const hasImagesBackup = Object.keys(localStorage).some((item) =>
+      item.match(new RegExp("avatar-", "i"))
+    );
+    if (hasImagesBackup) {
+      if (data) {
+        const alias = user?.email?.split("@")[0];
+        const localImage = localStorage.getItem(`avatar-${alias}`);
+        if (localImage) {
+          setUserImage(localImage);
+        }
+      } else {
+        for (const item in localStorage) {
+          if (item.match(new RegExp("avatar-", "i"))) {
+            localStorage.removeItem(item);
+          }
+        }
+      }
+    } else {
+      if (data) {
+        const alias = user?.email?.split("@")[0];
+        if (user?.image && alias) {
+          fetchImage(user.image, alias);
+        }
+      }
+    }
   }, [user]);
 
   return (
@@ -84,7 +121,6 @@ const SignIn: FC<Props> = () => {
             <Typography variant={FontVariants.SUBTITLE_1}>
               {user?.email}
             </Typography>
-
             <Button onClick={() => signOut()} className="mt-10">
               Sign out
             </Button>
