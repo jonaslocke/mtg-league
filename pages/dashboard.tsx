@@ -21,16 +21,18 @@ const Dashboard: FC = () => {
   return (
     <div className="container">
       <Typography variant={FontVariants.HEADING_1}>Current Leagues</Typography>
-      {leagues.map(({ leagueName, id, start_date, end_date, format }) => (
-        <LeagueCard
-          id={id}
-          leagueName={leagueName}
-          end_date={end_date}
-          start_date={start_date}
-          format={format}
-          key={id}
-        />
-      ))}
+      <div className="leagues-grid mt-8">
+        {leagues.map(({ leagueName, id, start_date, end_date, format }) => (
+          <LeagueCard
+            id={id}
+            leagueName={leagueName}
+            end_date={end_date}
+            start_date={start_date}
+            format={format}
+            key={id}
+          />
+        ))}
+      </div>
     </div>
   );
 };

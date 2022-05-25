@@ -8,8 +8,8 @@ type Data = {
 }
 
 const leaguesArr: LeagueModel[] = [];
-for (let i = 0; i < 10; i++) {
-    leaguesArr.push(new League(null, `${MtgFormats.PIONEER} league #${i}`, new Date().toISOString(), new Date().toISOString(), MtgFormats.PIONEER))
+for (let i = 0; i < 5; i++) {
+    leaguesArr.push(new League(null, `${MtgFormats.MODERN} league #${i}`, new Date().toISOString(), new Date().toISOString(), i % 2 == 0 ? MtgFormats.MODERN : MtgFormats.STANDARD))
 }
 
 export default function leagues(

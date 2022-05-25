@@ -1,0 +1,30 @@
+.leagues-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: spacing(4);
+}
+
+.league-card {
+  background-color: #444;
+  padding: spacing(4);
+  border-radius: spacing(2);
+  min-height: spacing(100);
+  position: relative;
+}
+
+@media screen and (max-width: spacing(280)) {
+  .leagues-grid {
+    margin: 0 spacing(4);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: spacing(270)) {
+  .leagues-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: spacing(160)) {
+  .leagues-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

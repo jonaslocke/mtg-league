@@ -7,7 +7,10 @@ type Props = ExtendCSS & {
 };
 
 const Typography: FC<Props> = ({ variant, children, className }) => {
-  const classes = `font-${variant} ` + className;
+  let classes = `font-${variant}`;
+  if (className) {
+    classes += " " + className;
+  }
   return <span className={`${classes}`}>{children}</span>;
 };
 

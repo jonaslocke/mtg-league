@@ -10,9 +10,12 @@ type Props = ExtendCSS & {
 const Button: FC<Props> = ({ children, onClick, className }) => {
   const hasURL = typeof onClick === "string";
   const classes = {
-    wrapper: `font-${FontVariants.BUTTON} ml-button ` + className,
+    wrapper: `font-${FontVariants.BUTTON} ml-button `,
     inner: `ml-button__inner`,
   };
+  if (className) {
+    classes.wrapper += " " + className;
+  }
   return (
     <>
       {hasURL && (

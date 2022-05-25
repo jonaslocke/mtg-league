@@ -1,0 +1,20 @@
+$mtg-formats: "standard", "future", "historic", "gladiator", "pioneer",
+  "explorer", "modern", "legacy", "pauper", "vintage", "penny", "commander",
+  "brawl", "historicbrawl", "alchemy", "paupercommander", "duel", "oldschool",
+  "premodern";
+
+$mtg-formats-colors: #e0ffcd, #222222, #222222, #222222, #ffc93c, #222222,
+  #ff9a3c, #ff6f3c, #222222, #222222, #222222, #222222, #222222, #222222,
+  #222222, #222222, #222222, #222222, #222222;
+
+@for $i from 1 through length($mtg-formats) {
+  .mtg-bg-color-#{nth($mtg-formats, $i)} {
+    background-color: nth($mtg-formats-colors, $i);
+  }
+  .mtg-color-#{nth($mtg-formats, $i)} {
+    color: nth($mtg-formats-colors, $i);
+  }
+  .mtg-bd-color-#{nth($mtg-formats, $i)} {
+    border: 1px solid nth($mtg-formats-colors, $i);
+  }
+}

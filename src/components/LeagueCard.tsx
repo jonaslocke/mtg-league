@@ -8,7 +8,13 @@ const LeagueCard: FC<LeagueModel> = ({
   leagueName,
   start_date,
 }) => {
-  return <div id={`mtg-leagues-league-${id}`}>{leagueName}</div>;
+  const classes = `league-card mtg-bd-color-${format}`;
+
+  return (
+    <div id={`mtg-leagues-league-${id}`} className={classes}>
+      {leagueName}
+    </div>
+  );
 };
 
 export default LeagueCard;
