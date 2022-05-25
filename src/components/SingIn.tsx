@@ -2,7 +2,7 @@ import {
   getProviders as prov,
   signIn,
   signOut,
-  useSession
+  useSession,
 } from "next-auth/react";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
@@ -37,16 +37,17 @@ const SignIn: FC<Props> = () => {
   useEffect(() => {
     setUser(data?.user);
   }, [data]);
-  useEffect(() => {
-    const localImage = localStorage.getItem("avatarqq");
-    const ready = !localImage && !!user?.image;
 
-    if (ready) {
-      ToDataUrl(user.image || "", ArchiveImage);
-      console.log("=>", localStorage.getItem("avatarqq"));
-    }
+  useEffect(() => {
+    // const localImage = localStorage.getItem("avatarqq");
+    // const ready = !localImage && !!user?.image;
+
+    // if (ready) {
+    //   ToDataUrl(user.image || "", ArchiveImage);
+    //   console.log("=>", localStorage.getItem("avatarqq"));
+    // }
+    console.log(user);
   }, [user]);
-  const testClick = () => console.log(1);
 
   return (
     <Modal open={open}>
@@ -74,18 +75,19 @@ const SignIn: FC<Props> = () => {
           ))}
         {inSignOut && (
           <>
-            <Avatar size={AvatarSizes.LARGE}>
+            <Avatar size={AvatarSizes.MEDIUM}>
               <img src={userImage} alt={user?.name?.toString()} />
             </Avatar>
-            <div className="fz-5 mt-4">{user?.name}</div>
-            <div className="fz-4">{user?.email}</div>
+            <Typography variant={FontVariants.HEADING_3} className={"mt-4"}>
+              {user?.name}
+            </Typography>
+            <Typography variant={FontVariants.SUBTITLE_1}>
+              {user?.email}
+            </Typography>
 
-            <button
-              onClick={() => signOut()}
-              className="menu-icon wh-0 ma-0 mt-4"
-            >
-              <div className="menu-icon__inner wh-0 pxy-5-3">Sign out</div>
-            </button>
+            <Button onClick={() => signOut()} className="mt-10">
+              Sign out
+            </Button>
           </>
         )}
       </div>

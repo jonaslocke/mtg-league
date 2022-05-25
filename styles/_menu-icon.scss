@@ -46,7 +46,7 @@
   display: block;
   background-color: #333;
   padding: 0 spacing(4);
-  line-height: spacing(10);
+  line-height: spacing(9);
   border-radius: spacing(1);
   cursor: pointer;
   position: relative;
@@ -57,14 +57,12 @@
   }
   &::before {
     @include beforeBtn();
-    left: 0;
     background-color: darken($color: #333, $amount: 6%);
     transform: translateX(calc(100% - 8px));
     transition: 0.2s ease-in;
   }
   &::after {
     @include beforeBtn();
-    left: 0;
     background-color: darken($color: #333, $amount: 12%);
     transform: translateX(calc(100% - 4px));
     transition: 0.4s ease-in;
