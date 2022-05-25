@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { FC, MouseEventHandler } from "react";
-import { FontVariants } from "../types";
+import { FC } from "react";
+import { ExtendCSS, FontVariants } from "../types";
 
-type Props = {
-  children: string;
+type Props = ExtendCSS & {
+  children: string | string[];
   onClick: string | Function;
 };
 
-const Button: FC<Props> = ({ children, onClick }) => {
+const Button: FC<Props> = ({ children, onClick, className }) => {
   const hasURL = typeof onClick === "string";
   const classes = {
-    wrapper: `font-${FontVariants.BUTTON} ml-button`,
+    wrapper: `font-${FontVariants.BUTTON} ml-button ` + className,
     inner: `ml-button__inner`,
   };
   return (

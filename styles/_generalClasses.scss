@@ -120,3 +120,18 @@ $font-classes-family: "Russo One", "Russo One", "Russo One", "Russo One",
     font-family: nth($font-classes-family, $i), sans-serif !important;
   }
 }
+
+$flex-positions: start, end, center, space-between, space-around;
+
+.d-flex {
+  display: flex !important;
+}
+
+@each $position in $flex-positions {
+  .justify-#{$position} {
+    justify-content: $position;
+  }
+  .align-#{$position} {
+    align-items: $position;
+  }
+}

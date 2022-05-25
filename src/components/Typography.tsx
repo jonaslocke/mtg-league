@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { FontVariants } from "../types";
+import { ExtendCSS, FontVariants } from "../types";
 
-type Props = {
+type Props = ExtendCSS & {
   variant: FontVariants;
   children: string;
 };
 
-const Typography: FC<Props> = ({ variant, children }) => {
-  const classes = `font-${variant}`;
+const Typography: FC<Props> = ({ variant, children, className }) => {
+  const classes = `font-${variant} ` + className;
   return <span className={`${classes}`}>{children}</span>;
 };
 

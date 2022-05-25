@@ -58,16 +58,16 @@
   &::before {
     @include beforeBtn();
     left: 0;
-    background-color: darken($color: #333, $amount: 5%);
+    background-color: darken($color: #333, $amount: 6%);
     transform: translateX(calc(100% - 8px));
-    transition: 0.1s ease-in;
+    transition: 0.2s ease-in;
   }
   &::after {
     @include beforeBtn();
     left: 0;
-    background-color: darken($color: #333, $amount: 10%);
+    background-color: darken($color: #333, $amount: 12%);
     transform: translateX(calc(100% - 4px));
-    transition: 0.2s ease-in;
+    transition: 0.4s ease-in;
   }
 
   &:hover {

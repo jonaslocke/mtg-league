@@ -2,16 +2,17 @@ import {
   getProviders as prov,
   signIn,
   signOut,
-  useSession,
+  useSession
 } from "next-auth/react";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { BiUserCircle } from "react-icons/bi";
-import { AvatarSizes, User } from "../types";
+import { ArchiveImage, dummy, ToDataUrl } from "../../vendors";
+import { AvatarSizes, FontVariants, User } from "../types";
 import Avatar from "./Avatar";
-import Modal from "./Modal";
-import { ToDataUrl, ArchiveImage, dummy } from "../../vendors";
 import Button from "./Button";
+import Modal from "./Modal";
+import Typography from "./Typography";
 
 type Props = {};
 
@@ -50,19 +51,25 @@ const SignIn: FC<Props> = () => {
   return (
     <Modal open={open}>
       <div className="sign-in">
-        <Button onClick={testClick}>click me</Button>
-        {inSignIn && <BiUserCircle size={64} />}
+        {inSignIn && (
+          <div className="d-flex align-center">
+            <BiUserCircle size={64} />
+            <Typography variant={FontVariants.HEADING_2} className={"ml-3"}>
+              MTG Leagues
+            </Typography>
+          </div>
+        )}
+        {inSignIn && (
+          <Typography variant={FontVariants.SUBTITLE_1} className={"mt-3"}>
+            Sign in to continue to MTG Leagues
+          </Typography>
+        )}
         {inSignIn &&
           Object.values(providers).map((provider: any) => (
             <div key={provider.id}>
-              <button
-                onClick={() => signIn(provider.id)}
-                className="menu-icon wh-0 ma-0 mt-4"
-              >
-                <div className="menu-icon__inner wh-0 pxy-5-3">
-                  Sign in with {provider.name}
-                </div>
-              </button>
+              <Button onClick={() => signIn(provider.id)} className="mt-12">
+                Sign in with {provider.name}
+              </Button>
             </div>
           ))}
         {inSignOut && (

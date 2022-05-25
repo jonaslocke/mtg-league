@@ -13,6 +13,10 @@ export type Provider = {
     callbackUrl: string
 }
 
+export type ExtendCSS = {
+    className?: string;
+}
+
 export enum AvatarSizes {
     SMALL = "small",
     MEDIUM = "medium",
