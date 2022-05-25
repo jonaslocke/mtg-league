@@ -22,6 +22,7 @@ const SignIn: FC<Props> = () => {
   const [open, setOpen] = useState(false);
   const [providers, setProviders] = useState<any>({});
   const [user, setUser] = useState<User>();
+  const [userImage, setUserImage] = useState(dummy);
   const { data } = useSession();
 
   const getProviders = async () => setProviders(await prov());
@@ -32,19 +33,15 @@ const SignIn: FC<Props> = () => {
   }, [query]);
 
   useEffect(() => {
-    if (!user) setUser({ ...data?.user, localImage: dummy });
+    setUser(data?.user);
   }, [data]);
-
   useEffect(() => {
-    if (!user?.localImage) console.log("eeff => no local image");
-    try {
-      const image = new Image();
-      image.src = user?.image || "";
+    const localImage = localStorage.getItem("avatarqq");
+    const ready = !localImage && !!user?.image;
 
-      image.addEventListener("loadeddata", (event) => console.log(event));
-    } catch (error) {
-      console.error(`Can't get image`, error);
-      setUser({ ...user, localImage: dummy.toString() });
+    if (ready) {
+      ToDataUrl(user.image || "", ArchiveImage);
+      console.log("=>", localStorage.getItem("avatarqq"));
     }
   }, [user]);
 
@@ -68,7 +65,7 @@ const SignIn: FC<Props> = () => {
         {inSignOut && (
           <>
             <Avatar size={AvatarSizes.LARGE}>
-              <img src={user?.localImage} alt={user?.name?.toString()} />
+              <img src={userImage} alt={user?.name?.toString()} />
             </Avatar>
             <div className="fz-5 mt-4">{user?.name}</div>
             <div className="fz-4">{user?.email}</div>

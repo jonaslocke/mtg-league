@@ -2,14 +2,15 @@
 
 export const ToDataUrl = (url: string, callback: (arg0: any) => void) => {
     const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
     xhr.onload = () => {
         const reader = new FileReader();
         reader.onloadend = () => callback(reader.result);
         reader.readAsDataURL(xhr.response);
+        return reader.result
     };
-    xhr.open('GET', url);
-    xhr.responseType = 'blob';
-    xhr.send();
 }
 
 export const ArchiveImage = (data: string) => {
