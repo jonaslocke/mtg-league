@@ -43,5 +43,36 @@ export enum FontVariants {
     OVERLINE = "overline",
 }
 
+export enum MtgFormats {
+    STANDARD = "standard",
+    FUTURE = "future",
+    HISTORIC = "historic",
+    GLADIATOR = "gladiator",
+    PIONEER = "pioneer",
+    EXPLORER = "explorer",
+    MODERN = "modern",
+    LEGACY = "legacy",
+    PAUPER = "pauper",
+    VINTAGE = "vintage",
+    PENNY = "penny",
+    COMMANDER = "commander",
+    BRAWL = "brawl",
+    HISTORICBRAWL = "historicbrawl",
+    ALCHEMY = "alchemy",
+    PAUPERCOMMANDER = "paupercommander",
+    DUEL = "duel",
+    OLDSCHOOL = "oldschool",
+    PREMODERN = "premodern",
+
+}
+
+export type LeagueModel = {
+    id: string | null;
+    start_date: string;
+    end_date: string;
+    format: MtgFormats;
+    leagueName: string;
+}
+
 
 
