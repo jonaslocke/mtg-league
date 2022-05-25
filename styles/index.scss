@@ -19,6 +19,7 @@ body {
   margin-left: var(--size);
   @include transition();
   padding: spacing(2);
+  height: 100%;
   &.extended {
     margin-left: calc(var(--size) * 2.5);
   }
@@ -27,8 +28,24 @@ body {
 .logo {
   cursor: pointer;
 }
+
 .spacer {
   flex: 1;
+}
+
+.container {
+  width: spacing(256);
+  height: 100%;
+  margin: auto;
+  &--fluid {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: spacing(257)) {
+  .container {
+    width: 100%;
+  }
 }
 
 @import "generalClasses";

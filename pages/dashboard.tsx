@@ -3,6 +3,7 @@ import { FontVariants } from "../src/types";
 import Typography from "../src/components/Typography";
 import { LeagueModel } from "../src/types";
 import { useEffect } from "react";
+import LeagueCard from "../src/components/LeagueCard";
 
 const Dashboard: FC = () => {
   const [leagues, setLeagues] = useState<LeagueModel[]>([]);
@@ -18,10 +19,17 @@ const Dashboard: FC = () => {
   }, []);
 
   return (
-    <div className="pxy-20-10">
+    <div className="container">
       <Typography variant={FontVariants.HEADING_1}>Current Leagues</Typography>
-      {leagues.map(({ leagueName, id }) => (
-        <div key={id}>{leagueName}</div>
+      {leagues.map(({ leagueName, id, start_date, end_date, format }) => (
+        <LeagueCard
+          id={id}
+          leagueName={leagueName}
+          end_date={end_date}
+          start_date={start_date}
+          format={format}
+          key={id}
+        />
       ))}
     </div>
   );
