@@ -15,6 +15,6 @@ $mtg-formats-colors: #e0ffcd, #222222, #222222, #222222, #ffc93c, #222222,
     color: nth($mtg-formats-colors, $i);
   }
   .mtg-bd-color-#{nth($mtg-formats, $i)} {
-    border: 1px solid nth($mtg-formats-colors, $i);
+    border: 2px solid nth($mtg-formats-colors, $i);
   }
 }
