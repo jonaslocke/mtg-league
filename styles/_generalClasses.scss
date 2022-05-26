@@ -1,4 +1,16 @@
 @for $i from 0 through 20 {
+  .br-#{$i} {
+    border-radius: spacing($i) !important;
+  }
+
+  .ls-#{$i} {
+    @if $i == 0 {
+      letter-spacing: normal !important;
+    } @else {
+      letter-spacing: #{$i/10}px !important;
+    }
+  }
+
   .fz-#{$i} {
     @if $i != 0 {
       font-size: spacing($i) !important;
@@ -81,6 +93,10 @@
       height: spacing($i) !important;
     }
   }
+
+  .lh-#{$i} {
+    line-height: spacing($i) !important;
+  }
 }
 @for $i from 0 through 100 {
   .wp-#{$i} {
@@ -158,5 +174,14 @@ $colors-values: #ffffff, #000000, #06d6a0, #ffd166, #ef476f, #118ab2;
   }
   .background-#{nth($colors-name, $i)} {
     background-color: nth($colors-values, $i) !important;
+  }
+}
+
+$display-types: block, inline, inline-block, flex, inline-flex, grid,
+  inline-grid, flow-root;
+
+@each $type in $display-types {
+  .d-#{$type} {
+    display: $type;
   }
 }

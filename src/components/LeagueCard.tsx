@@ -1,7 +1,8 @@
 import { FC } from "react";
-import { FontVariants, LeagueModel } from "../types";
-import Typography from "./Typography";
+import { Colors, ElementSizes, FontVariants, LeagueModel } from "../types";
 import { fd } from "../util";
+import Chip from "./Chip";
+import Typography from "./Typography";
 
 const LeagueCard: FC<LeagueModel> = ({
   id,
@@ -60,6 +61,13 @@ const LeagueCard: FC<LeagueModel> = ({
             </Typography>
           </span>
         </div>
+        <Chip
+          bgColor={Colors.SECONDARY}
+          size={ElementSizes.LARGE}
+          fontColor={Colors.WHITE}
+        >
+          {format}
+        </Chip>
       </div>
     </div>
   );

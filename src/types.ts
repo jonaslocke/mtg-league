@@ -3,19 +3,19 @@ export type Link = {
     to: string;
     initial: string;
     as?: string;
-}
+};
 
 export type Provider = {
     id: string;
     name: string;
     type: string;
     signinUrl: string;
-    callbackUrl: string
-}
+    callbackUrl: string;
+};
 
 export type ExtendCSS = {
     className?: string;
-}
+};
 
 export enum ElementSizes {
     SMALL = "small",
@@ -23,11 +23,13 @@ export enum ElementSizes {
     LARGE = "large",
 }
 
-export type User = {
-    name?: string | null | undefined;
-    email?: string | null | undefined;
-    image?: string | null | undefined;
-} | undefined
+export type User =
+    | {
+        name?: string | null | undefined;
+        email?: string | null | undefined;
+        image?: string | null | undefined;
+    }
+    | undefined;
 
 export enum FontVariants {
     HEADING_1 = "h1",
@@ -72,9 +74,15 @@ export type LeagueModel = {
     format: MtgFormats;
     leagueName: string;
     image: string;
-    createdAt: string,
+    createdAt: string;
     deletedOn: string | null;
+};
+
+export enum Colors {
+    WHITE = "white",
+    BLACK = "black",
+    PRIMARY = "primary",
+    SECONDARY = "secondary",
+    TERTIARY = "tertiary",
+    QUATERNARY = "quaternary",
 }
-
-
-
