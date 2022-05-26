@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { Colors, ElementSizes, MtgFormats } from "../types";
-import { getEnum } from "../util";
 type Props = {
   size: ElementSizes;
   children: string | string[];
@@ -21,7 +20,6 @@ const Chip: FC<Props> = ({ size, children, bgColor, fontColor }) => {
       : `background-${bgColor}`,
   };
 
-  console.log(getEnum(MtgFormats, "alchemy"));
   return (
     <span className={[classes.base, classes.background].join(" ")}>
       {children}

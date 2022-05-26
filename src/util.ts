@@ -17,12 +17,4 @@ const fd = (date: string) => {
     return today.toLocaleDateString("pt-BR");
 };
 
-const getEnum = (list: any, value: string) => {
-    let result: string | null = null;
-    Object.entries(list).forEach(([key, val]) => {
-        if (val === value) result = key;
-    });
-    return result;
-};
-
-export { getBackground, rndIntInterval, fd, getEnum };
+export { getBackground, rndIntInterval, fd };

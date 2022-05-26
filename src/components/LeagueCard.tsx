@@ -1,5 +1,11 @@
 import { FC } from "react";
-import { Colors, ElementSizes, FontVariants, LeagueModel } from "../types";
+import {
+  Colors,
+  ElementSizes,
+  FontVariants,
+  LeagueModel,
+  MtgFormats,
+} from "../types";
 import { fd } from "../util";
 import Chip from "./Chip";
 import Typography from "./Typography";
@@ -62,9 +68,9 @@ const LeagueCard: FC<LeagueModel> = ({
           </span>
         </div>
         <Chip
-          bgColor={Colors.SECONDARY}
+          bgColor={format}
           size={ElementSizes.LARGE}
-          fontColor={Colors.WHITE}
+          fontColor={Colors.BLACK}
         >
           {format}
         </Chip>
