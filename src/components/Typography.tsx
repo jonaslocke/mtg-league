@@ -3,7 +3,7 @@ import { ExtendCSS, FontVariants } from "../types";
 
 type Props = ExtendCSS & {
   variant: FontVariants;
-  children: string | null | undefined;
+  children: string | string[] | null | undefined;
 };
 
 const Typography: FC<Props> = ({ variant, children, className }) => {

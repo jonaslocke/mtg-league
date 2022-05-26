@@ -134,3 +134,29 @@ $flex-positions: start, end, center, space-between, space-around;
     align-items: $position;
   }
 }
+$text-transform: none, capitalize, uppercase, lowercase, full-width,
+  full-size-kana;
+
+@each $transform in $text-transform {
+  .text-transform-#{$transform} {
+    text-transform: $transform !important;
+  }
+}
+
+@for $i from 1 through 9 {
+  .font-weight-#{$i * 100} {
+    font-weight: #{$i * 100} !important;
+  }
+}
+
+$colors-name: "white", "black", "primary", "secondary", "tertiary", "quaternary";
+$colors-values: #ffffff, #000000, #06d6a0, #ffd166, #ef476f, #118ab2;
+
+@for $i from 1 through length($colors-name) {
+  .text-#{nth($colors-name, $i)} {
+    color: nth($colors-values, $i) !important;
+  }
+  .background-#{nth($colors-name, $i)} {
+    background-color: nth($colors-values, $i) !important;
+  }
+}

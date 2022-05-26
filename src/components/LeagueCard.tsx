@@ -1,18 +1,66 @@
 import { FC } from "react";
-import { LeagueModel } from "../types";
+import { FontVariants, LeagueModel } from "../types";
+import Typography from "./Typography";
+import { fd } from "../util";
 
 const LeagueCard: FC<LeagueModel> = ({
   id,
-  end_date,
+  start,
+  end,
   format,
   leagueName,
-  start_date,
+  image,
+  createdAt,
 }) => {
-  const classes = `league-card mtg-bd-color-${format}`;
+  const classes = {
+    wrapper: `league-card mtg-bd-color-${format}`,
+    image: `league-card__image`,
+    inner: `league-card__inner`,
+    title: `league-card__title`,
+    subtitle: {
+      left: `text-transform-uppercase font-weight-500 text-white`,
+      right: `text-white font-weight-500`,
+    },
+  };
 
   return (
-    <div id={`mtg-leagues-league-${id}`} className={classes}>
-      {leagueName}
+    <div id={`mtg-leagues-league-${id}`} className={classes.wrapper}>
+      <img src={image} className={classes.image} />
+      <div className={classes.inner}>
+        <Typography variant={FontVariants.HEADING_3} className={classes.title}>
+          {leagueName}
+        </Typography>
+        <div className="d-flex justify-space-between">
+          <span>
+            <Typography
+              variant={FontVariants.SUBTITLE_2}
+              className={classes.subtitle.left}
+            >
+              Start:{" "}
+            </Typography>
+            <Typography
+              variant={FontVariants.SUBTITLE_2}
+              className={classes.subtitle.right}
+            >
+              {fd(start)}
+            </Typography>
+          </span>
+          <span>
+            <Typography
+              variant={FontVariants.SUBTITLE_2}
+              className={classes.subtitle.left}
+            >
+              End:{" "}
+            </Typography>
+            <Typography
+              variant={FontVariants.SUBTITLE_2}
+              className={classes.subtitle.right}
+            >
+              {fd(end)}
+            </Typography>
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

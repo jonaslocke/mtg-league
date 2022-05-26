@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { AvatarSizes } from "../types";
+import { ElementSizes } from "../types";
 
 type Props = {
-  size: AvatarSizes;
+  size: ElementSizes;
   children: JSX.Element;
 };
 

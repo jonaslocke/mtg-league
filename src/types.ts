@@ -17,7 +17,7 @@ export type ExtendCSS = {
     className?: string;
 }
 
-export enum AvatarSizes {
+export enum ElementSizes {
     SMALL = "small",
     MEDIUM = "medium",
     LARGE = "large",
@@ -63,15 +63,17 @@ export enum MtgFormats {
     DUEL = "duel",
     OLDSCHOOL = "oldschool",
     PREMODERN = "premodern",
-
 }
 
 export type LeagueModel = {
     id: string | null;
-    start_date: string;
-    end_date: string;
+    start: string;
+    end: string;
     format: MtgFormats;
     leagueName: string;
+    image: string;
+    createdAt: string,
+    deletedOn: string | null;
 }
 
 

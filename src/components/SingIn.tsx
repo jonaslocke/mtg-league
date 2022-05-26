@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { dummy } from "../../vendors";
-import { AvatarSizes, FontVariants, User } from "../types";
+import { ElementSizes, FontVariants, User } from "../types";
 import Avatar from "./Avatar";
 import Button from "./Button";
 import Modal from "./Modal";
@@ -112,7 +112,7 @@ const SignIn: FC<Props> = () => {
           ))}
         {inSignOut && (
           <>
-            <Avatar size={AvatarSizes.MEDIUM}>
+            <Avatar size={ElementSizes.MEDIUM}>
               <img src={userImage} alt={user?.name?.toString()} />
             </Avatar>
             <Typography variant={FontVariants.HEADING_3} className={"mt-4"}>

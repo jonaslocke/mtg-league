@@ -6,10 +6,54 @@
 
 .league-card {
   background-color: #444;
-  padding: spacing(4);
   border-radius: spacing(2);
   min-height: spacing(100);
   position: relative;
+  overflow: hidden;
+  &__image {
+    position: absolute;
+    width: 160%;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: brightness(0.4);
+  }
+  &__inner {
+    position: relative;
+    padding: spacing(4);
+    z-index: 2;
+  }
+  &__title {
+    text-transform: uppercase !important;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(68, 68, 68, 0.5),
+      rgba(68, 68, 68, 0.55),
+      rgba(68, 68, 68, 0.6),
+      rgba(68, 68, 68, 0.6),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1),
+      rgba(68, 68, 68, 1)
+    );
+
+    z-index: 1;
+  }
 }
 
 @media screen and (max-width: spacing(280)) {

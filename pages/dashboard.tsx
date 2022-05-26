@@ -22,16 +22,32 @@ const Dashboard: FC = () => {
     <div className="container">
       <Typography variant={FontVariants.HEADING_1}>Current Leagues</Typography>
       <div className="leagues-grid mt-8">
-        {leagues.map(({ leagueName, id, start_date, end_date, format }) => (
-          <LeagueCard
-            id={id}
-            leagueName={leagueName}
-            end_date={end_date}
-            start_date={start_date}
-            format={format}
-            key={id}
-          />
-        ))}
+        {leagues
+          .filter(({ deletedOn }) => !deletedOn)
+          .map(
+            ({
+              leagueName,
+              id,
+              start,
+              end,
+              format,
+              createdAt,
+              image,
+              deletedOn,
+            }) => (
+              <LeagueCard
+                id={id}
+                leagueName={leagueName}
+                end={end}
+                start={start}
+                format={format}
+                createdAt={createdAt}
+                image={image}
+                deletedOn={deletedOn}
+                key={id}
+              />
+            )
+          )}
       </div>
     </div>
   );
