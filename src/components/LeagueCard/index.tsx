@@ -16,7 +16,7 @@ const LeagueCard: FC<LeagueModel> = ({
     wrapper: `league-card mtg-bd-color-${format}`,
     image: `league-card__image`,
     inner: `league-card__inner`,
-    content: `flex-1`,
+    content: `league-card__content mt-2 flex-1`,
   };
 
   return (
