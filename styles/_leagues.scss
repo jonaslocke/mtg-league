@@ -10,24 +10,26 @@
   min-height: spacing(100);
   position: relative;
   overflow: hidden;
+  max-height: 45vh;
   &__image {
     position: absolute;
-    width: 160%;
+    // width: 160%;
     left: 50%;
+    height: 130%;
     transform: translateX(-50%);
-    filter: brightness(0.7);
+    filter: brightness(0.3);
   }
   &__inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    padding: spacing(4);
     z-index: 2;
-  }
-  &__title {
-    text-transform: uppercase !important;
+    padding: 8px;
   }
 
   &::before {
-    content: "";
+    // content: "";
     position: absolute;
     display: block;
     width: 100%;

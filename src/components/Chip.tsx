@@ -14,7 +14,7 @@ const Chip: FC<Props> = ({ size, children, bgColor, fontColor }) => {
     }
   }
   const classes = {
-    base: `d-inline-block pxy-2-1 mt-2 br-2 fz-2 font-weight-700 ls-6 text-transform-uppercase text-${fontColor}`,
+    base: `d-inline-block pxy-2-1 mt-1 br-2 fz-2 font-weight-700 ls-6 text-transform-uppercase text-${fontColor}`,
     background: isMtgColor
       ? `mtg-bg-color-${bgColor}`
       : `background-${bgColor}`,

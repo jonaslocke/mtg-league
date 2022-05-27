@@ -10,10 +10,10 @@ const leaguesArr: LeagueModel[] = [];
 for (let i = 0; i < 5; i++) {
     const league = new League(
         null,
-        `${MtgFormats.PIONEER} League #${i + 1}`,
+        `${MtgFormats.MODERN} League #${i + 1}`,
         new Date().toISOString(),
         new Date().toISOString(),
-        MtgFormats.PIONEER,
+        MtgFormats.MODERN,
         getBackground(),
         new Date().toISOString(),
         null,
