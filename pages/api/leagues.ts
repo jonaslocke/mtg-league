@@ -13,13 +13,18 @@ const leaguesIds = [
   "18f2f83c-7859-44ce-b0d5-0eef1aa59298",
   "4a944c05-0eb6-4dea-8128-1f6a1bbca77b",
 ];
+const leagueFormats = [
+  MtgFormats.PIONEER,
+  MtgFormats.MODERN,
+  MtgFormats.PAUPER,
+];
 for (let i = 0; i < leaguesIds.length; i++) {
   const league = new League(
     leaguesIds[i],
-    `${MtgFormats.MODERN} League #${i + 1}`,
+    `${leagueFormats[i]} League #${i + 1}`,
     new Date().toISOString(),
     new Date().toISOString(),
-    MtgFormats.MODERN,
+    leagueFormats[i],
     getBackground(),
     new Date().toISOString(),
     null
