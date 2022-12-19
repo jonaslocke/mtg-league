@@ -1,7 +1,7 @@
-import { LeagueModel, MtgFormats } from "../types";
+import { LeaderboardModel, MtgFormats } from "../types";
 import { v4 as uuidv4 } from "uuid";
 
-export class League implements LeagueModel {
+export class League implements LeaderboardModel {
     constructor(
         readonly id: string | null,
         public leagueName: string,

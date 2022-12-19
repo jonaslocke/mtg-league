@@ -1,16 +1,17 @@
 import { FC, useState } from "react";
 import { FontVariants } from "../src/types";
 import Typography from "../src/components/Typography";
-import { LeagueModel } from "../src/types";
+import { LeaderboardModel } from "../src/types";
 import { useEffect } from "react";
 import LeagueCard from "../src/components/LeagueCard";
 
 const Dashboard: FC = () => {
-  const [leagues, setLeagues] = useState<LeagueModel[]>([]);
+  const [leagues, setLeagues] = useState<LeaderboardModel[]>([]);
   const fetchLeagues = async () => {
     const api = "/api/leagues";
     const response = await fetch(`${api}`);
     const { data } = await response.json();
+    console.log(data);
     setLeagues(data);
   };
 

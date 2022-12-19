@@ -1,17 +1,16 @@
 import { FC } from "react";
-import { LeagueModel } from "../../types";
+import { LeaderboardModel } from "../../types";
 import LeagueTable from "../LeagueTable";
 import LeagueCardHeader from "./_header";
 
-const LeagueCard: FC<LeagueModel> = ({
-  id,
-  start,
-  end,
-  format,
-  leagueName,
-  image,
-  createdAt,
-}) => {
+const LeagueCard: FC<LeaderboardModel> = (props) => {
+
+  const {
+    id,
+    format,
+    image,
+  } = props
+
   const classes = {
     wrapper: `league-card mtg-bd-color-${format}`,
     image: `league-card__image`,
@@ -23,13 +22,7 @@ const LeagueCard: FC<LeagueModel> = ({
     <div id={`mtg-leagues-league-${id}`} className={classes.wrapper}>
       <img src={image} className={classes.image} />
       <div className={classes.inner}>
-        <LeagueCardHeader
-          end={end}
-          start={start}
-          format={format}
-          leagueName={leagueName}
-        />
-
+        <LeagueCardHeader {...props} />
         <div className={classes.content}>
           <LeagueTable />
         </div>
